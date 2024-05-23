@@ -1,47 +1,8 @@
-<link
-  href="https://fonts.googleapis.com/icon?family=Material+Icons"
-  rel="stylesheet"
-/>
-
+<!-- Components and mat-card added to app.component.html so that they get displayed on the webpage -->
 <app-header></app-header>
 <app-about></app-about>
-<mat-tab-group
-  mat-stretch-tabs
-  class="example-stretched-tabs mat-elevation-z4"
-  [ngStyle]="{ textAlign: 'center' }"
->
-  <app-projects>
-    <mat-tab label="online-bookstore">
-      <ng-template mat-tab-label="online-bookstore">
-        <span>Online Bookstore</span>
-      </ng-template>
-      <app-online-bookstore></app-online-bookstore>
-    </mat-tab>
-    <mat-tab label="portfolio-website">
-      <ng-template mat-tab-label="portfolio-website">
-        <span>Portfolio Website</span>
-      </ng-template>
-      <app-portfolio-website></app-portfolio-website>
-    </mat-tab>
-    <mat-tab label="war-game">
-      <ng-template mat-tab-label="war-game">
-        <span>War Game</span>
-      </ng-template>
-      <app-war-game></app-war-game>
-    </mat-tab>
-    <mat-tab label="stock-portfolio">
-      <ng-template mat-tab-label="stock-portfolio">
-        <span>Stock Portfolio</span>
-      </ng-template>
-      <app-stock-portfolio></app-stock-portfolio>
-    </mat-tab>
-    <mat-tab label="todo-list">
-      <ng-template mat-tab-label="todo-list">
-        <span>To-Do List</span>
-      </ng-template>
-      <app-todo-list></app-todo-list>
-    </mat-tab>
-  </app-projects>
-</mat-tab-group>
+<app-projects>
+  <mat-card></mat-card>
+</app-projects>
 <app-contact></app-contact>
 <app-footer></app-footer>
