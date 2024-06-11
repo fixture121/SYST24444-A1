@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Personal } from '../setups';
 
 @Component({
   selector: 'app-header',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
 
 // sname gets read by header.component.html and uses the name entered in this component to display it
 export class HeaderComponent {
-  sname = 'Toufiq Charania';
+  @Input() personal!: Personal;
 }

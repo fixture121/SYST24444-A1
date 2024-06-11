@@ -1,16 +1,7 @@
 <!-- Moved about paragraph elements into a div to create a container to style the About component separately -->
 <div class="about-me-container">
-  <h3>About Me:</h3>
-  <p>
-    My name is Toufiq, and I am a second-year SNDE student at Sheridan College.
-  </p>
-  <p>
-    I am excited to be learning about Angular, especially after learning
-    React.js at my previous co-op!
-  </p>
-  <img
-    src="assets/images/photo-2.jpg"
-    width="400"
-    alt="Profile picture of Toufiq"
-  />
+  <h3>{{ about.header }}</h3>
+  <p>{{ about.subtitle }}</p>
+  <p>{{ about.description }}</p>
+  <img src="{{ about.image }}" width="400" alt="Profile picture of Toufiq" />
 </div>

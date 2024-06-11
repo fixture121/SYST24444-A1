@@ -1,11 +1,14 @@
 <h3>Projects</h3>
 <!-- Placed material cards within a material tab group to achieve tabbed view for all five projects -->
 <mat-tab-group class="mat-tab-container">
-  <mat-tab label="Project 1" class="project-1">
+  <mat-tab label="Project {{ projects[0].id }}" class="project-1">
     <mat-card>
       <mat-card-header>
         <mat-card-subtitle>
-          <app-online-bookstore></app-online-bookstore>
+          <app-online-bookstore
+            [project]="projects[0]"
+            [id]="1"
+          ></app-online-bookstore>
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-actions>
@@ -14,24 +17,14 @@
       <mat-card-footer> </mat-card-footer>
     </mat-card>
   </mat-tab>
-  <mat-tab label="Project 2" class="project-2">
+  <mat-tab label="Project {{ projects[1].id }}" class="project-2">
     <mat-card>
       <mat-card-header>
         <mat-card-subtitle>
-          <app-portfolio-website></app-portfolio-website>
-        </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-actions>
-        <button mat-button></button>
-      </mat-card-actions>
-      <mat-card-footer> </mat-card-footer>
-    </mat-card>
-  </mat-tab>
-  <mat-tab label="Project 3" class="project-3">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-subtitle>
-          <app-war-game></app-war-game>
+          <app-portfolio-website
+            [project]="projects[1]"
+            [id]="2"
+          ></app-portfolio-website>
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-actions>
@@ -40,11 +33,24 @@
       <mat-card-footer></mat-card-footer>
     </mat-card>
   </mat-tab>
-  <mat-tab label="Project 4" class="project-4">
+  <mat-tab label="Project {{ projects[2].id }}" class="project-3">
     <mat-card>
       <mat-card-header>
         <mat-card-subtitle>
-          <app-stock-portfolio></app-stock-portfolio>
+          <app-war-game [project]="projects[2]" [id]="3"></app-war-game>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions>
+        <button mat-button></button>
+      </mat-card-actions>
+      <mat-card-footer></mat-card-footer>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Project {{ projects[3].id }}" class="project-4">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-subtitle>
+          <app-stock-portfolio [project]="projects[3]"></app-stock-portfolio>
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-actions>
@@ -52,11 +58,11 @@
       </mat-card-actions>
       <mat-card-footer> </mat-card-footer>
     </mat-card>
-    <mat-tab label="Project 5" class="project-5">
+    <mat-tab label="Project {{ projects[4].id }}" class="project-5">
       <mat-card>
         <mat-card-header>
           <mat-card-subtitle>
-            <app-todo-list></app-todo-list>
+            <app-todo-list [project]="projects[4]"></app-todo-list>
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-actions>
