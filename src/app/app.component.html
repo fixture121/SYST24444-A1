@@ -1,3 +1,6 @@
+<nav [ngClass]="{'darkMode' : isDarkMode}">
+  <mat-checkbox (change)="darkMode($event.checked)">Dark Mode</mat-checkbox>
+</nav>
 <!-- Components and mat-card added to app.component.html so that they get displayed on the webpage -->
 <app-header [personal]="mydata"></app-header>
 <app-about [personal]="mydata" [about]="about" ></app-about>

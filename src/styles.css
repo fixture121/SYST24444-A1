@@ -83,3 +83,61 @@ p {
   text-align: right;
   margin-right: 10px;
 }
+
+/* Dark Mode */
+
+.darkMode {
+  background-color: #121212;
+  color: white;
+}
+
+.darkMode body {
+  background-color: #121212;
+  color: white;
+}
+
+.darkMode h1,
+.darkMode h2,
+.darkMode h3,
+.darkMode p {
+  color: white;
+}
+
+.darkMode .header {
+  background-color: rgba(33, 33, 33, 0.9);
+}
+
+.darkMode .about-me-container {
+  color: white;
+}
+
+.darkMode mat-card {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.darkMode .contact-container {
+  background-color: rgba(55, 55, 55, 0.7);
+}
+
+.darkMode .footer-container {
+  color: white;
+}
+
+.darkMode mat-tab-group {
+  background-color: #1e1e1e;
+}
+
+.darkMode mat-tab-header {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.darkMode mat-tab-body {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.darkMode mat-checkbox {
+  color: white;
+}

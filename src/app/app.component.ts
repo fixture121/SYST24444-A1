@@ -77,4 +77,8 @@ export class AppComponent {
       'Technologies Used for this Assignment: Angular, TypeScript, HTML, CSS',
     name: `Made By: ${this.mydata.first} ${this.mydata.last}`,
   };
+  isDarkMode: boolean = false;
+  darkMode(isOn: boolean) {
+    this.isDarkMode = isOn;
+  }
 }
