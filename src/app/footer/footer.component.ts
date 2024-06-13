@@ -8,4 +8,5 @@ import { Footer } from '../setups';
 })
 export class FooterComponent {
   @Input() footer!: Footer;
+  @Input() isDarkMode!: boolean;
 }

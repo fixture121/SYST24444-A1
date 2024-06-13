@@ -1,5 +1,5 @@
 <!-- Moved Header elements into a div to create a container to style the Header component separately -->
-<div class="header">
+<div class="header" [ngClass]="{'darkMode': isDarkMode}">
   <!-- sname gets read from header.component.ts -->
   <h1>Assignment {{personal.assignment}} / By: {{ personal.first }} {{ personal.last }}</h1>
   <h2>{{personal.role}}</h2>

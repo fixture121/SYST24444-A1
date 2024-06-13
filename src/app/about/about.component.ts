@@ -9,4 +9,5 @@ import { Personal, About } from '../setups';
 export class AboutComponent {
   @Input() personal!: Personal;
   @Input() about!: About;
+  @Input() isDarkMode!: boolean;
 }

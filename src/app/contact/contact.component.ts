@@ -8,4 +8,5 @@ import { Socials } from '../setups';
 })
 export class ContactComponent {
   @Input() socials!: Socials;
+  @Input() isDarkMode!: boolean;
 }

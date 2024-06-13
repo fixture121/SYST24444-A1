@@ -8,4 +8,6 @@ import { Projects } from '../setups';
 })
 export class ProjectsComponent {
   @Input() projects!: Projects[];
+  // Gets dark mode status from the parent component
+  @Input() isDarkMode!: boolean;
 }

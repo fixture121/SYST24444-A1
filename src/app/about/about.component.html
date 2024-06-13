@@ -1,5 +1,5 @@
 <!-- Moved about paragraph elements into a div to create a container to style the About component separately -->
-<div class="about-me-container">
+<div class="about-me-container" [ngClass]="{'darkMode': isDarkMode}">
   <h3>{{ about.header }}</h3>
   <p>{{ about.subtitle }}</p>
   <p>{{ about.description }}</p>

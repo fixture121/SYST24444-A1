@@ -1,5 +1,5 @@
 <!-- Moved Contact elements into a div to create a container to style the Contact component separately -->
-<div class="contact-container">
+<div class="contact-container" [ngClass]="{'darkMode': isDarkMode}">
   <h3>{{ socials.header }}</h3>
   <div>
     <a href="{{ socials.github }}">{{ socials.name1 }}</a>

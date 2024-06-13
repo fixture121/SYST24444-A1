@@ -8,4 +8,5 @@ import { Projects } from 'src/app/setups';
 })
 export class WarGameComponent {
   @Input() project!: Projects;
+  @Input() isDarkMode!: boolean;
 }

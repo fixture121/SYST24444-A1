@@ -4,7 +4,7 @@ import { Personal, About, Socials, Projects, Footer } from './setups';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css', '../styles.css'],
 })
 export class AppComponent {
   title = 'Assignment 2';
@@ -15,6 +15,7 @@ export class AppComponent {
     role: 'Student',
     motto: 'Motto: YOLO, You Only Live Once',
   };
+  // About section details
   about: About = {
     header: 'About Me:',
     // Used string interpolation inside subtitle - Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
@@ -23,6 +24,7 @@ export class AppComponent {
       'I am excited to be learning about Angular, especially after learning React.js at my previous co-op!',
     image: 'assets/images/photo-2.jpg',
   };
+  // Contact section details
   links: Socials = {
     header: 'Connect With Me!',
     linkedIn: 'https://www.linkedin.com/in/toufiqcharania/',
@@ -30,6 +32,7 @@ export class AppComponent {
     name1: 'Github',
     name2: 'LinkedIn',
   };
+  // Projects array with details of all projects
   projects: Projects[] = [
     {
       id: 1,
@@ -72,13 +75,14 @@ export class AppComponent {
       image: 'assets/images/project-5.png',
     },
   ];
+  // Footer section details
   footer: Footer = {
     technologies:
       'Technologies Used for this Assignment: Angular, TypeScript, HTML, CSS',
     name: `Made By: ${this.mydata.first} ${this.mydata.last}`,
   };
+
+  // Used a boolean to check if dark mode is enabled
+  // Reference: https://dev.to/muhammadawaisshaikh/creating-a-dark-light-toggle-mode-on-your-angular-app-3k83
   isDarkMode: boolean = false;
-  darkMode(isOn: boolean) {
-    this.isDarkMode = isOn;
-  }
 }

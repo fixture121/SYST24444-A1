@@ -1,3 +1,5 @@
-<h3>{{ project.header }}</h3>
-<p>{{ project.subtitle }}</p>
-<p>{{ project.description }}</p>
+<div  [ngClass]="{'darkMode': isDarkMode}">
+    <h3>{{ project.header }}</h3>
+    <p>{{ project.subtitle }}</p>
+    <p>{{ project.description }}</p>
+</div>

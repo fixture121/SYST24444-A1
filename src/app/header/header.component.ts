@@ -7,7 +7,7 @@ import { Personal } from '../setups';
   styleUrls: ['./header.component.css'],
 })
 
-// sname gets read by header.component.html and uses the name entered in this component to display it
 export class HeaderComponent {
   @Input() personal!: Personal;
+  @Input() isDarkMode!: boolean;
 }

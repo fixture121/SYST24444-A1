@@ -1,4 +1,6 @@
-<h3>{{ project.header }}</h3>
-<p>{{ project.subtitle }}</p>
-<p>{{ project.description }}</p>
-<img src="{{ project.image }}" width="700" alt="War Game logo" />
+<div [ngClass]="{'darkMode': isDarkMode}">
+    <h3>{{ project.header }}</h3>
+    <p>{{ project.subtitle }}</p>
+    <p>{{ project.description }}</p>
+    <img src="{{ project.image }}" width="700" alt="War Game logo" />
+</div>

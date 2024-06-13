@@ -1,5 +1,5 @@
 <!-- Moved portfolio-website elements into a div to create a container to style the portfolio-website component separately -->
-<div class="portfolio-website">
+<div class="portfolio-website" [ngClass]="{'darkMode': isDarkMode}">
   <h3>{{ project.header }}</h3>
   <p>{{ project.subtitle }}</p>
   <p>{{ project.description }}</p>
