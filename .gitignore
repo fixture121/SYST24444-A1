@@ -40,3 +40,15 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+cpanel/3rdpartylicenses.txt
+cpanel/favicon.ico
+cpanel/index.html
+cpanel/main.c968f0fccd9d3aee.js
+cpanel/polyfills.78f8ca90248adbad.js
+cpanel/runtime.911e72083123fd7d.js
+cpanel/styles.0a3830aa02d3b1a7.css
+cpanel/assets/images/github.png
+cpanel/assets/images/linkedin.png
+cpanel/assets/images/photo-2.jpg
+cpanel/assets/images/portfolio-website.png
+cpanel/assets/images/project-3.png
