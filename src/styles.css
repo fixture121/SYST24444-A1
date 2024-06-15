@@ -77,9 +77,40 @@ p {
   padding: 50px;
 }
 
+.mat-card-header {
+  text-align: center;
+}
+
 /* Footer CSS */
 
 .footer-container {
   text-align: right;
   margin-right: 10px;
+}
+
+/* Dark Mode */
+
+.darkMode {
+  background-color: black;
+  color: white;
+}
+
+.darkMode h1,
+.darkMode h2,
+.darkMode h3,
+.darkMode p {
+  color: white;
+}
+
+.darkMode mat-card {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.darkMode .footer-container {
+  color: white;
+}
+
+.darkMode mat-tab-group {
+  background-color: #1e1e1e;
 }

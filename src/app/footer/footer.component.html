@@ -1,4 +1,5 @@
 <!-- Moved Footer elements into a div to create a container to style the Footer component separately -->
-<div class="footer-container">
-  <h4>Technologies Used for this Assignment: Angular, TypeScript, HTML, CSS</h4>
+<div class="footer-container" [ngClass]="{'darkMode': isDarkMode}">
+  <h4>{{ footer.technologies }}</h4>
+  <h5>{{ footer.name }}</h5>
 </div>
