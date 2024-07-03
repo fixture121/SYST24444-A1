@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "header": "Online Bookstore",
+      "subtitle": "An online bookstore where users can browse books, create an account, and add books to their shopping cart.",
+      "description": "Technologies Used: Java, Spring Boot, HTML, CSS, JavaScript",
+      "image": ""
+    },
+    {
+      "id": 2,
+      "header": "Portfolio Website",
+      "subtitle": "A website to showcase my projects.",
+      "description": "Technologies Used: HTML, CSS, JavaScript",
+      "image": "assets/images/portfolio-website.png"
+    },
+    {
+      "id": 3,
+      "header": "War Game",
+      "subtitle": "A Java-based card game where the highest card wins the round.",
+      "description": "Technologies Used: Java",
+      "image": "assets/images/project-3.png"
+    },
+    {
+      "id": 4,
+      "header": "Stock Portfolio",
+      "subtitle": "A Java Spring Boot application where users can add stocks to their stock portfolio using a Yahoo! Finance API.",
+      "description": "Technologies Used: Java, Spring Boot, HTML, CSS, JavaScript",
+      "image": ""
+    },
+    {
+      "id": 5,
+      "header": "To-Do List",
+      "subtitle": " A simple to-do list where users can add tasks to their list, check-off completed tasks, and delete tasks from the list. List remains persistent by saving to local storage.",
+      "description": "Technologies Used: React.js, CSS",
+      "image": "assets/images/project-5.png"
+    }
+  ]
+  

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Personal, About, Socials, Projects, Footer } from './setups';
+import projectdata from '../assets/data/projects.json';
+import contentdata from '../assets/data/content.json';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,12 @@ import { Personal, About, Socials, Projects, Footer } from './setups';
   styleUrls: ['./app.component.css', '../styles.css'],
 })
 export class AppComponent {
-  title = 'Assignment 2';
+  title = 'Assignment 3';
+  mydata: Personal = contentdata.personal;
+  about: About = contentdata.about;
+  links: Socials = contentdata.socials;
+  footer: Footer = contentdata.footer;
+  /*
   mydata: Personal = {
     assignment: 2,
     first: 'Toufiq',
@@ -15,6 +22,8 @@ export class AppComponent {
     role: 'Student',
     motto: 'Motto: YOLO, You Only Live Once',
   };
+  */
+  /*
   // About section details
   about: About = {
     header: 'About Me:',
@@ -24,6 +33,8 @@ export class AppComponent {
       'I am excited to be learning about Angular, especially after learning React.js at my previous co-op!',
     image: 'assets/images/photo-2.jpg',
   };
+  */
+  /*
   // Contact section details
   links: Socials = {
     header: 'Connect With Me!',
@@ -32,6 +43,8 @@ export class AppComponent {
     name1: 'Github',
     name2: 'LinkedIn',
   };
+  */
+  /*
   // Projects array with details of all projects
   projects: Projects[] = [
     {
@@ -75,12 +88,16 @@ export class AppComponent {
       image: 'assets/images/project-5.png',
     },
   ];
+  */
+  projects: Projects[] = projectdata;
+  /*
   // Footer section details
   footer: Footer = {
     technologies:
       'Technologies Used for this Assignment: Angular, TypeScript, HTML, CSS',
     name: `Made By: ${this.mydata.first} ${this.mydata.last}`,
   };
+  */
 
   // Used a boolean to check if dark mode is enabled
   // Reference: https://dev.to/muhammadawaisshaikh/creating-a-dark-light-toggle-mode-on-your-angular-app-3k83
