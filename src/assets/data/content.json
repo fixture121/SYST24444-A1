@@ -1,5 +1,6 @@
 {
     "personal": {
+      "title": "Assignment 3",
       "assignment": 3,
       "first": "Toufiq",
       "last": "Charania",
@@ -8,7 +9,7 @@
     },
     "about": {
       "header": "About Me:",
-      "subtitle": "My name is, and I am a second-year SNDE student at Sheridan College.",
+      "subtitle": "My name is Toufiq, and I am a second-year SNDE student at Sheridan College.",
       "description": "I am excited to be learning about Angular, especially after learning React.js at my previous co-op!",
       "image": "assets/images/photo-2.jpg"
     },
@@ -21,7 +22,7 @@
     },
     "footer": {
       "technologies": "Technologies Used for this Assignment: Angular, TypeScript, HTML, CSS",
-      "name": "Made By: ${first} ${last}"
+      "name": "Made By: Toufiq Charania"
     }
   }
   

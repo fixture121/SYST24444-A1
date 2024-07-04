@@ -1,4 +1,5 @@
-[
+{
+"projects": [
     {
       "id": 1,
       "header": "Online Bookstore",
@@ -35,4 +36,4 @@
       "image": "assets/images/project-5.png"
     }
   ]
-  
+}
