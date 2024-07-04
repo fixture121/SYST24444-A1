@@ -1,61 +1,36 @@
 <h3>Projects</h3>
+<!-- Placed form field inside a div to apply styling -->
+<div [ngStyle]="{'display': 'flex', 'justify-content': 'center'}">
+  <!--
+  Search input field to allow user to enter a project title to display
+  Reference https://material.angular.io/components/input/overview
+  -->
+  <mat-form-field>
+    <mat-label>Search for a Project</mat-label>
+    <!--
+    ngModel two-way binds the input field with the search variable
+    (input) triggers the filterProjects function when the user types in the input field
+    Reference: https://blog.thoughtram.io/angular/2016/10/13/two-way-data-binding-in-angular-2.html#two-way-data-binding-in-a-nutshell
+    -->
+    <input matInput [(ngModel)]="search" (input)="filterProjects(search)" />
+  </mat-form-field>
+</div>
 <!-- Placed material cards within a material tab group to achieve tabbed view for all five projects -->
 <mat-tab-group class="mat-tab-container">
-  <!-- Used the index of Projects array to display the details -->
-  <mat-tab label="Project {{ projects[0].id }}" class="project-1">
+  <!-- Loops through the filteredData array to place each project in its own tab and uses the project's ID in the label -->
+  <mat-tab *ngFor="let x of filteredData" [label]="'Project ' + x.id">
     <mat-card>
       <mat-card-header>
         <mat-card-subtitle>
-          <app-online-bookstore
-            [project]="projects[0]"
-            [id]="1"
-          ></app-online-bookstore>
-        </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-footer> </mat-card-footer>
-    </mat-card>
-  </mat-tab>
-  <mat-tab label="Project {{ projects[1].id }}" class="project-2">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-subtitle>
-          <app-portfolio-website
-            [project]="projects[1]"
-            [id]="2"
-          ></app-portfolio-website>
+          <!-- Displays each project's component using the project's ID using ngIf statements -->
+          <app-online-bookstore *ngIf="x.id === 1" [project]="x"></app-online-bookstore>
+          <app-portfolio-website *ngIf="x.id === 2" [project]="x"></app-portfolio-website>
+          <app-war-game *ngIf="x.id === 3" [project]="x"></app-war-game>
+          <app-stock-portfolio *ngIf="x.id === 4" [project]="x"></app-stock-portfolio>
+          <app-todo-list *ngIf="x.id === 5" [project]="x"></app-todo-list>
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-footer></mat-card-footer>
     </mat-card>
-  </mat-tab>
-  <mat-tab label="Project {{ projects[2].id }}" class="project-3">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-subtitle>
-          <app-war-game [project]="projects[2]" [id]="3"></app-war-game>
-        </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-footer></mat-card-footer>
-    </mat-card>
-  </mat-tab>
-  <mat-tab label="Project {{ projects[3].id }}" class="project-4">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-subtitle>
-          <app-stock-portfolio [project]="projects[3]"></app-stock-portfolio>
-        </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-footer> </mat-card-footer>
-    </mat-card>
-    <mat-tab label="Project {{ projects[4].id }}" class="project-5">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-subtitle>
-            <app-todo-list [project]="projects[4]"></app-todo-list>
-          </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-footer></mat-card-footer>
-      </mat-card>
-    </mat-tab>
   </mat-tab>
 </mat-tab-group>
