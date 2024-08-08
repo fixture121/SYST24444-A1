@@ -1,57 +1,94 @@
-import { Component, Input } from '@angular/core';
+// import { Component, Input, OnInit } from '@angular/core';
+// import { Projects } from '../setups';
+// import { CardbuttonsService } from 'src/app/cardbuttons.service';
+// import { ActivatedRoute } from '@angular/router';
+
+// @Component({
+//   selector: 'app-projects',
+//   templateUrl: './projects.component.html',
+//   styleUrls: ['./projects.component.css']
+// })
+// export class ProjectsComponent implements OnInit {
+//   @Input() projects!: Projects[];
+//   // Gets dark mode status from the parent component
+//   @Input() isDarkMode!: boolean;
+
+//   // Initializes search as a blank string and stores the user's input to use to filter results
+//   search: string = '';
+  
+//   // When the user searches for a project, the projects displayed are stored in filteredData as an array 
+//   filteredData: Projects[] = [];
+
+//   /*
+//    * Initializes the filteredData array with all five projects to display initially
+//    * Reference: https://v17.angular.io/guide/lifecycle-hooks, https://v17.angular.io/api/core/OnInit
+//   */
+//   ngOnInit() {
+//     this.filteredData = this.projects;
+//   }
+
+//   /*
+//    * Filters the projects to display based on the user's input and updates the filteredData array accordingly
+//    * Reference: https://www.typescriptlang.org/docs/handbook/functions.html#rest-parameters
+//   */
+//   filterProjects(search: string) {
+//     this.filteredData = [];
+//     // Loops through all of the projects and checks if the user's input matches with any of the projects' titles
+//     for (let x of this.projects) {
+//       if (x.header.toLowerCase().includes(search.toLowerCase())) {
+//         /*
+//          * If a match is found, adds the project to the filteredData array
+//          * push method is what is used to add the project to the array
+//          * Reference: https://www.tutorialspoint.com/typescript/typescript_array_push.htm
+//         */
+//         this.filteredData.push(x);
+//       }
+//     }
+//     // If the user's input does not match any of the projects' titles, all projects remain displayed
+//     if (this.filteredData.length === 0) {
+//       this.filteredData = this.projects;
+//     }
+//   }
+
+//   constructor(private cardService: CardbuttonsService) {}
+
+//   like(elem: any) {
+//     this.cardService.likeCard(elem);
+//   }
+// }
+
+import { Component, Input, OnInit } from '@angular/core';
 import { Projects } from '../setups';
-import { CardbuttonsService } from 'src/app/cardbuttons.service';
+import { ProjectsService } from '../projects.service';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
   @Input() projects!: Projects[];
-  // Gets dark mode status from the parent component
   @Input() isDarkMode!: boolean;
 
-  // Initializes search as a blank string and stores the user's input to use to filter results
   search: string = '';
-  
-  // When the user searches for a project, the projects displayed are stored in filteredData as an array 
   filteredData: Projects[] = [];
 
-  /*
-   * Initializes the filteredData array with all five projects to display initially
-   * Reference: https://v17.angular.io/guide/lifecycle-hooks, https://v17.angular.io/api/core/OnInit
-  */
+  constructor(private projectsService: ProjectsService) {}
+
   ngOnInit() {
-    this.filteredData = this.projects;
+    this.loadProjects();
   }
 
-  /*
-   * Filters the projects to display based on the user's input and updates the filteredData array accordingly
-   * Reference: https://www.typescriptlang.org/docs/handbook/functions.html#rest-parameters
-  */
+  loadProjects() {
+    this.projectsService.getProjects().subscribe((projects: Projects[]) => {
+      this.projects = projects;
+      this.filteredData = projects;
+    });
+  }
+
   filterProjects(search: string) {
-    this.filteredData = [];
-    // Loops through all of the projects and checks if the user's input matches with any of the projects' titles
-    for (let x of this.projects) {
-      if (x.header.toLowerCase().includes(search.toLowerCase())) {
-        /*
-         * If a match is found, adds the project to the filteredData array
-         * push method is what is used to add the project to the array
-         * Reference: https://www.tutorialspoint.com/typescript/typescript_array_push.htm
-        */
-        this.filteredData.push(x);
-      }
-    }
-    // If the user's input does not match any of the projects' titles, all projects remain displayed
-    if (this.filteredData.length === 0) {
-      this.filteredData = this.projects;
-    }
-  }
-
-  constructor(private cardService: CardbuttonsService) {}
-
-  like(elem: any) {
-    this.cardService.likeCard(elem);
+    this.filteredData = this.projects.filter(project =>
+      project.header.toLowerCase().includes(search.toLowerCase())
+    );
   }
 }

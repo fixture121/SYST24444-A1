@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { Router, RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -26,7 +27,9 @@ const approutes: Routes = [
   {path: "war-game", component: WarGameComponent},
   {path: "stock-portfolio", component: StockPortfolioComponent},
   {path: "todo-list", component: TodoListComponent},
-  {path: "project/:id", component: ProjectDetailsComponent}
+  { path: "", component: ProjectsComponent },
+  { path: "projects", component: ProjectsComponent },
+  {path: "project/:id", component: ProjectDetailsComponent},
 ];
 
 @NgModule({
@@ -49,7 +52,8 @@ const approutes: Routes = [
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    RouterModule.forRoot(approutes)
+    RouterModule.forRoot(approutes),
+    HttpClientModule
   ],
   providers: [provideClientHydration(), CardbuttonsService],
   bootstrap: [AppComponent],

@@ -1,0 +1,10 @@
+/* projects.component.css */
+.project-card {
+    cursor: pointer;
+  }
+  
+  .project-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
