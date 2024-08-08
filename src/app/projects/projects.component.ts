@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Projects } from '../setups';
+import { CardbuttonsService } from 'src/app/cardbuttons.service';
 
 @Component({
   selector: 'app-projects',
@@ -46,5 +47,11 @@ export class ProjectsComponent {
     if (this.filteredData.length === 0) {
       this.filteredData = this.projects;
     }
+  }
+
+  constructor(private cardService: CardbuttonsService) {}
+
+  like(elem: any) {
+    this.cardService.likeCard(elem);
   }
 }

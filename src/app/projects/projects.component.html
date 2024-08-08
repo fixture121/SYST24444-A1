@@ -28,6 +28,7 @@
           <app-war-game *ngIf="x.id === 3" [project]="x"></app-war-game>
           <app-stock-portfolio *ngIf="x.id === 4" [project]="x"></app-stock-portfolio>
           <app-todo-list *ngIf="x.id === 5" [project]="x"></app-todo-list>
+          <button mat-raised-button color="primary" [routerLink]="['/project', x.id]"></button>
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-footer></mat-card-footer>
