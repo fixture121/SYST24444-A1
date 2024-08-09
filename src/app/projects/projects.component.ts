@@ -1,50 +1,62 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Projects } from '../setups';
+import { ProjectsService } from '../projects.service';
+import { CardbuttonsService } from 'src/app/cardbuttons.service';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
   @Input() projects!: Projects[];
-  // Gets dark mode status from the parent component
   @Input() isDarkMode!: boolean;
 
-  // Initializes search as a blank string and stores the user's input to use to filter results
   search: string = '';
-  
-  // When the user searches for a project, the projects displayed are stored in filteredData as an array 
   filteredData: Projects[] = [];
-
   /*
-   * Initializes the filteredData array with all five projects to display initially
-   * Reference: https://v17.angular.io/guide/lifecycle-hooks, https://v17.angular.io/api/core/OnInit
-  */
+   * Set stores the IDs of the projects that the user liked
+   * Reference: ChatGPT
+   */
+  likedProjects: Set<number> = new Set<number>();
+
+  constructor(private cardService: CardbuttonsService, private projectsService: ProjectsService) {}
+
+  // Loads in the projects data when component gets initialized
   ngOnInit() {
-    this.filteredData = this.projects;
+    this.loadProjects();
   }
 
-  /*
-   * Filters the projects to display based on the user's input and updates the filteredData array accordingly
-   * Reference: https://www.typescriptlang.org/docs/handbook/functions.html#rest-parameters
-  */
+  // Gets the list of projects from projects service and assigns it to projects and filteredData properties
+  loadProjects() {
+    this.projectsService.getProjects().subscribe((projects: Projects[]) => {
+      this.projects = projects;
+      this.filteredData = projects;
+    });
+  }
+
   filterProjects(search: string) {
-    this.filteredData = [];
-    // Loops through all of the projects and checks if the user's input matches with any of the projects' titles
-    for (let x of this.projects) {
-      if (x.header.toLowerCase().includes(search.toLowerCase())) {
-        /*
-         * If a match is found, adds the project to the filteredData array
-         * push method is what is used to add the project to the array
-         * Reference: https://www.tutorialspoint.com/typescript/typescript_array_push.htm
-        */
-        this.filteredData.push(x);
-      }
+    this.filteredData = this.projects.filter(project =>
+      project.header.toLowerCase().includes(search.toLowerCase())
+    );
+  }
+
+  // 
+  like(projectId: number) {
+    // Toggles like status for the project using project ID in the likedProjects set
+    if (this.likedProjects.has(projectId)) {
+      // If the like button is already clicked for the project, remove it from likedProjects set
+      this.likedProjects.delete(projectId);
+    } else {
+      // If the like button is not clicked for the project, add it to likedProjects set
+      this.likedProjects.add(projectId);
     }
-    // If the user's input does not match any of the projects' titles, all projects remain displayed
-    if (this.filteredData.length === 0) {
-      this.filteredData = this.projects;
-    }
+    // Calls likeCard method in cardService to update like status
+    this.cardService.likeCard(projectId.toString());
+  }
+
+  // Checks if the project is liked using project ID in likedProjects set
+  isLiked(projectId: number): boolean {
+    return this.likedProjects.has(projectId);
   }
 }

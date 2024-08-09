@@ -3,7 +3,7 @@
 <div [ngStyle]="{'display': 'flex', 'justify-content': 'center'}">
   <!--
   Search input field to allow user to enter a project title to display
-  Reference https://material.angular.io/components/input/overview
+  Reference: https://material.angular.io/components/input/overview
   -->
   <mat-form-field>
     <mat-label>Search for a Project</mat-label>
@@ -18,19 +18,36 @@
 <!-- Placed material cards within a material tab group to achieve tabbed view for all five projects -->
 <mat-tab-group class="mat-tab-container">
   <!-- Loops through the filteredData array to place each project in its own tab and uses the project's ID in the label -->
-  <mat-tab *ngFor="let x of filteredData" [label]="'Project ' + x.id">
+  <mat-tab *ngFor="let project of filteredData" [label]="'Project ' + project.id">
     <mat-card>
       <mat-card-header>
-        <mat-card-subtitle>
-          <!-- Displays each project's component using the project's ID using ngIf statements -->
-          <app-online-bookstore *ngIf="x.id === 1" [project]="x"></app-online-bookstore>
-          <app-portfolio-website *ngIf="x.id === 2" [project]="x"></app-portfolio-website>
-          <app-war-game *ngIf="x.id === 3" [project]="x"></app-war-game>
-          <app-stock-portfolio *ngIf="x.id === 4" [project]="x"></app-stock-portfolio>
-          <app-todo-list *ngIf="x.id === 5" [project]="x"></app-todo-list>
-        </mat-card-subtitle>
+        <mat-card-title>{{ project.header }}</mat-card-title>
+        <mat-card-subtitle>{{ project.subtitle }}</mat-card-subtitle>
       </mat-card-header>
-      <mat-card-footer></mat-card-footer>
+      <mat-card-content>
+        <p>{{ project.description }}</p>
+        <!-- Displays each project's component using the project's ID using ngIf statements -->
+        <app-online-bookstore *ngIf="project.id === 1" [project]="project"></app-online-bookstore>
+        <app-portfolio-website *ngIf="project.id === 2" [project]="project"></app-portfolio-website>
+        <app-war-game *ngIf="project.id === 3" [project]="project"></app-war-game>
+        <app-stock-portfolio *ngIf="project.id === 4" [project]="project"></app-stock-portfolio>
+        <app-todo-list *ngIf="project.id === 5" [project]="project"></app-todo-list>
+      </mat-card-content>
+      <mat-card-actions>
+        <!--
+        When the button is clicked, the URL changes dynamically to /project{id}
+        Reference: https://angular.io/api/router/RouterLink
+         -->
+        <button mat-raised-button color="primary" [routerLink]="['/project', project.id]">
+          View Details
+        </button>
+        <!-- When the like button is clicked, it changes colour to blue by calling the method in projects.component.ts -->
+        <button mat-icon-button (click)="like(project.id)" [ngStyle]="{'color': isLiked(project.id) ? 'blue' : 'initial'}">
+          <mat-icon>thumb_up</mat-icon>
+        </button>
+      </mat-card-actions>
+      <mat-card-footer>
+      </mat-card-footer>
     </mat-card>
   </mat-tab>
 </mat-tab-group>
