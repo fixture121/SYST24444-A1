@@ -1,11 +1,23 @@
 <h3>Projects</h3>
+<!-- Placed form field inside a div to apply styling -->
 <div [ngStyle]="{'display': 'flex', 'justify-content': 'center'}">
+  <!--
+  Search input field to allow user to enter a project title to display
+  Reference: https://material.angular.io/components/input/overview
+  -->
   <mat-form-field>
     <mat-label>Search for a Project</mat-label>
+    <!--
+    ngModel two-way binds the input field with the search variable
+    (input) triggers the filterProjects function when the user types in the input field
+    Reference: https://blog.thoughtram.io/angular/2016/10/13/two-way-data-binding-in-angular-2.html#two-way-data-binding-in-a-nutshell
+    -->
     <input matInput [(ngModel)]="search" (input)="filterProjects(search)" />
   </mat-form-field>
 </div>
+<!-- Placed material cards within a material tab group to achieve tabbed view for all five projects -->
 <mat-tab-group class="mat-tab-container">
+  <!-- Loops through the filteredData array to place each project in its own tab and uses the project's ID in the label -->
   <mat-tab *ngFor="let project of filteredData" [label]="'Project ' + project.id">
     <mat-card>
       <mat-card-header>
@@ -14,6 +26,7 @@
       </mat-card-header>
       <mat-card-content>
         <p>{{ project.description }}</p>
+        <!-- Displays each project's component using the project's ID using ngIf statements -->
         <app-online-bookstore *ngIf="project.id === 1" [project]="project"></app-online-bookstore>
         <app-portfolio-website *ngIf="project.id === 2" [project]="project"></app-portfolio-website>
         <app-war-game *ngIf="project.id === 3" [project]="project"></app-war-game>
@@ -21,9 +34,14 @@
         <app-todo-list *ngIf="project.id === 5" [project]="project"></app-todo-list>
       </mat-card-content>
       <mat-card-actions>
+        <!--
+        When the button is clicked, the URL changes dynamically to /project{id}
+        Reference: https://angular.io/api/router/RouterLink
+         -->
         <button mat-raised-button color="primary" [routerLink]="['/project', project.id]">
           View Details
         </button>
+        <!-- When the like button is clicked, it changes colour to blue by calling the method in projects.component.ts -->
         <button mat-icon-button (click)="like(project.id)" [ngStyle]="{'color': isLiked(project.id) ? 'blue' : 'initial'}">
           <mat-icon>thumb_up</mat-icon>
         </button>

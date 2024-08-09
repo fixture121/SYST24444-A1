@@ -1,5 +1,6 @@
 <div *ngIf="project">
   <h2>Project Details</h2>
+  <!-- Used ? as objects are possibly undefined -->
   <p><strong>ID:</strong> {{ project?.id }}</p>
   <p><strong>Name:</strong> {{ project?.header }}</p>
   <p><strong>Subtitle:</strong> {{ project?.subtitle }}</p>

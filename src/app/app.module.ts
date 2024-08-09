@@ -20,6 +20,7 @@ import { StockPortfolioComponent } from './projects/stock-portfolio/stock-portfo
 import { CardbuttonsService } from './cardbuttons.service';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 
+// Define the routes and maps a URL to a component
 const approutes: Routes = [
   {path: "", component: ProjectsComponent},
   {path: "online-bookstore", component: OnlineBookstoreComponent},
