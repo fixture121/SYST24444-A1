@@ -9,6 +9,6 @@ export class CardbuttonsService {
 
   likeCard(data: any) {
     alert('LIKE');
-    document.getElementById(data)!.style.color = 'crimson';
+    document.getElementById(data)!.style.color = 'blue';
   }
 }

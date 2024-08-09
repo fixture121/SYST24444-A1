@@ -1,14 +1,10 @@
 <h3>Projects</h3>
-
-<!-- Center the search input field -->
 <div [ngStyle]="{'display': 'flex', 'justify-content': 'center'}">
   <mat-form-field>
     <mat-label>Search for a Project</mat-label>
     <input matInput [(ngModel)]="search" (input)="filterProjects(search)" />
   </mat-form-field>
 </div>
-
-<!-- Tabbed view for displaying the projects -->
 <mat-tab-group class="mat-tab-container">
   <mat-tab *ngFor="let project of filteredData" [label]="'Project ' + project.id">
     <mat-card>
@@ -16,26 +12,23 @@
         <mat-card-title>{{ project.header }}</mat-card-title>
         <mat-card-subtitle>{{ project.subtitle }}</mat-card-subtitle>
       </mat-card-header>
-
       <mat-card-content>
         <p>{{ project.description }}</p>
-        <!-- Displays the appropriate component for each project using the project's ID -->
         <app-online-bookstore *ngIf="project.id === 1" [project]="project"></app-online-bookstore>
         <app-portfolio-website *ngIf="project.id === 2" [project]="project"></app-portfolio-website>
         <app-war-game *ngIf="project.id === 3" [project]="project"></app-war-game>
         <app-stock-portfolio *ngIf="project.id === 4" [project]="project"></app-stock-portfolio>
         <app-todo-list *ngIf="project.id === 5" [project]="project"></app-todo-list>
       </mat-card-content>
-
       <mat-card-actions>
-        <!-- Button to navigate to a detailed view of the project -->
         <button mat-raised-button color="primary" [routerLink]="['/project', project.id]">
           View Details
         </button>
+        <button mat-icon-button (click)="like(project.id)" [ngStyle]="{'color': isLiked(project.id) ? 'blue' : 'initial'}">
+          <mat-icon>thumb_up</mat-icon>
+        </button>
       </mat-card-actions>
-
       <mat-card-footer>
-        <!-- Placeholder for any footer content you may want to add -->
       </mat-card-footer>
     </mat-card>
   </mat-tab>

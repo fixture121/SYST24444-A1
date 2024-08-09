@@ -1,36 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-// import { Personal, About, Socials, Projects, Footer } from './setups';
-// import projectdata from '../assets/data/projects.json';
-// import contentdata from '../assets/data/content.json';
-// import { HttpClient } from '@angular/common/http';
-
-// @Component({
-//   selector: 'app-root',
-//   templateUrl: './app.component.html',
-//   styleUrls: ['./app.component.css', '../styles.css'],
-// })
-// export class AppComponent implements OnInit {
-//   // Declared variables to hold data to pass to child components
-//   mydata: Personal = contentdata.personal;
-//   about: About = contentdata.about;
-//   links: Socials = contentdata.socials;
-//   footer: Footer = contentdata.footer;
-//   projects: Projects[] = projectdata.projects;
-    
-//   // Used a boolean to check if dark mode is enabled
-//   // Reference: https://dev.to/muhammadawaisshaikh/creating-a-dark-light-toggle-mode-on-your-angular-app-3k83
-//   isDarkMode: boolean = false;
-
-//   constructor(private http: HttpClient) {}
-
-//   getLocal() {}
-//   getRemote(pick: string) {}
-
-//   ngOnInit() {
-//     this.getLocal();
-//     this.getRemote('1');
-//   }
-// }
 import { Component, OnInit } from '@angular/core';
 import { Personal, About, Socials, Projects, Footer } from './setups';
 import { HttpClient } from '@angular/common/http';
@@ -55,7 +22,6 @@ export class AppComponent implements OnInit {
 
   constructor(private http: HttpClient) {}
 
-  // Fetch local data from JSON file
   getLocal() {
     this.http.get<{ personal: Personal, about: About, socials: Socials, footer: Footer }>(this.personalUrl)
       .subscribe(data => {
@@ -67,7 +33,6 @@ export class AppComponent implements OnInit {
       });
   }
 
-  // Fetch remote data from HTTP
   getRemote(pick: string) {
     this.http.get<Projects[]>(this.projectsUrl)
       .subscribe(data => {
